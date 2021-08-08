@@ -53,6 +53,10 @@ function UploadTest() {
     return Promise.resolve(newFile);
   };
 
+  const onRemove = (uploadFile: UploadFile) => {
+    console.log("onRemove", uploadFile);
+  };
+
   return (
     <div>
       <Upload
@@ -63,6 +67,13 @@ function UploadTest() {
         onError={onError}
         onChange={onChange}
         // beforeUpload={filePromise}
+        onRemove={onRemove}
+        name="fileName"
+        data={{ key: "value" }}
+        headers={{ "X-Powered-By": "vinkingship" }}
+        accept=".jpg"
+        multiple
+        drag
       >
         <Icon icon="upload" size="5x" theme="secondary" />
         <br />
