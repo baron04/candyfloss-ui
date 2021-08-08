@@ -168,6 +168,8 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
   );
 };
 
+export default AutoComplete;
+
 /* import { prependOnceListener } from "cluster";
 
 interface AutoCompleteProps {
