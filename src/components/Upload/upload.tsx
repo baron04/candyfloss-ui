@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Children, FC, useRef, useState } from "react";
+import React, { ChangeEvent, FC, useRef, useState } from "react";
 import axios from "axios";
 import Button from "../Button/button";
 import UploadList from "./uploadList";
@@ -179,7 +179,7 @@ const Upload: FC<UploadProps> = props => {
   return (
     <div className="viking-upload-component">
       <div className="viking-upload-input" onClick={handleClick}>
-        {drag ? (
+        {/* {drag ? (
           <Dragger
             onFile={files => {
               uploadFiles(files);
@@ -189,7 +189,7 @@ const Upload: FC<UploadProps> = props => {
           </Dragger>
         ) : (
           children
-        )}
+        )} */}
         <input
           className="viking-file-input"
           style={{ display: "none" }}
