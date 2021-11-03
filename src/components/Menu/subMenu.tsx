@@ -64,7 +64,11 @@ const SubMenu: React.FC<SubMenuProps> = props => {
     });
     const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>;
-      if (childElement.type.displayName === "MenuItem") {
+      if (!childElement.type) {
+        return null;
+      }
+      const { displayName } = childElement.type;
+      if (displayName === "MenuItem") {
         return React.cloneElement(childElement, {
           index: `${index}-${i}`
         });
@@ -76,7 +80,7 @@ const SubMenu: React.FC<SubMenuProps> = props => {
     });
     return (
       //<Transition in={menuOpen} timeout={300} animation="zoom-in-top">
-        <ul className={subMenuClasses}>{childrenComponent}</ul>
+      <ul className={subMenuClasses}>{childrenComponent}</ul>
       //</Transition>
     );
   };
